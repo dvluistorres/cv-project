@@ -1,8 +1,9 @@
 import React, {Component} from "react";
+import { formatISO } from "date-fns";
 
 const Education = ({education, onChangeFunction, deleteEducationFunction, addEducation}) => {
     return(
-        <div>
+        <div className="education">
             {education.map(element => <EducationBullet key={element.key} bullet={element} onChangeFunction={onChangeFunction} deleteEducationFunction={deleteEducationFunction}/>)}
             <button onClick={addEducation}>Add education</button>
         </div>
@@ -27,8 +28,8 @@ const EducationBullet = ({bullet, onChangeFunction, deleteEducationFunction}) =>
 
             <div className="information">
                 <p className="detail">Start and end date</p>
-                <input type='date' onChange={onChangeFunction}  className="startDate" value={startDate.toISOString().substr(0, 10)}/>
-                <input type='date' onChange={onChangeFunction}  className="endDate" value={endDate.toISOString().substr(0, 10)}/>
+                <input type='date' onChange={onChangeFunction}  className="startDate" value={startDate}/>
+                <input type='date' onChange={onChangeFunction}  className="endDate" value={endDate}/>
             </div>
 
             <div className="information">

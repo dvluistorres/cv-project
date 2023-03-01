@@ -4,7 +4,9 @@ import Title from './modules/Title'
 import PersonalDetails from './modules/PersonalDetails';
 import ProfessionalSummary from './modules/ProfessionalSummary';
 import Education from './modules/Education';
-import uniqid from 'uniqid'
+import uniqid from 'uniqid';
+import { formatISO, parseISO } from 'date-fns';
+
 
 class App extends Component {
   constructor (){
@@ -25,8 +27,8 @@ class App extends Component {
         {key: uniqid(),
         school: 'The Odin Project',
         degree: 'Web Developer',
-        startDate: new Date ('2022-07'),
-        endDate: new Date ('2023-02'),
+        startDate: formatISO(new Date ('2022-07-01'), { representation: 'date' }),
+        endDate: formatISO(new Date ('2023-02-28'), { representation: 'date' }),
         city: 'virtual',
         description: 'Right now studying full stack javascript course just missing the React module to complete front-end part. Willing to complete the course as i\'m also willing to learn backend and later on machine learning.'},
       ],
@@ -61,9 +63,10 @@ class App extends Component {
 
     const school = parentElement.querySelector('.school').value;
     const degree = parentElement.querySelector('.degree').value;
+    const startDate = formatISO(new Date(parentElement.querySelector('.startDate').value), { representation: 'date' });
     console.log(parentElement.querySelector('.startDate').value)
-    const startDate = new Date(parentElement.querySelector('.startDate').value);
-    const endDate = new Date(parentElement.querySelector('.endDate').value);
+    console.log(startDate)
+    const endDate = formatISO(new Date(parentElement.querySelector('.endDate').value), { representation: 'date' });
     const city = parentElement.querySelector('.city').value;
     const description = parentElement.querySelector('.description').value;
 
