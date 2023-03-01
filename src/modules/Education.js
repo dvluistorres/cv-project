@@ -15,30 +15,30 @@ const EducationBullet = ({bullet, onChangeFunction, deleteEducationFunction}) =>
     const {key, school, degree, startDate, endDate, city, description} = bullet;
     return(
         <div className="bullet">
-            <div className="school">
+            <div className="information">
                 <p className="detail">School</p>
-                <input onChange={onChangeFunction}  className="school text" value={school}/>
+                <input onChange={onChangeFunction}  className="school" value={school}/>
             </div>
 
-            <div className="degree">
+            <div className="information">
                 <p className="detail">Degree</p>
-                <input onChange={onChangeFunction}  className="degree text" value={degree}/>
+                <input onChange={onChangeFunction}  className="degree" value={degree}/>
             </div>
 
-            <div className="dates">
+            <div className="information">
                 <p className="detail">Start and end date</p>
-                <input type='date' onChange={onChangeFunction}  className="startDate text" value={startDate.toISOString().substr(0, 10)}/>
-                <input type='date' onChange={onChangeFunction}  className="endDate text" value={endDate.toISOString().substr(0, 10)}/>
+                <input type='date' onChange={onChangeFunction}  className="startDate" value={startDate.toISOString().substr(0, 10)}/>
+                <input type='date' onChange={onChangeFunction}  className="endDate" value={endDate.toISOString().substr(0, 10)}/>
             </div>
 
-            <div className="city">
+            <div className="information">
                 <p className="detail">City</p>
-                <input onChange={onChangeFunction}  className="city text" value={city}/>
+                <input onChange={onChangeFunction}  className="city" value={city}/>
             </div>
 
-            <div className="description">
+            <div className="information">
                 <p className="detail">Description</p>
-                <input onChange={onChangeFunction}  className="description text" value={description}/>
+                <input onChange={onChangeFunction}  className="description" value={description}/>
             </div>
 
             <button key-value={key} onClick={deleteEducationFunction}>🗑️</button>

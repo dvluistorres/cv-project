@@ -51,8 +51,36 @@ class App extends Component {
   }
 
   handleEducationChange = (e) => {
-    const element = e.target.parentNode
-    console.log(element)
+    const element = e.target;
+    const parentElement = element.parentNode.parentNode;
+    const currentKey = parentElement.querySelector('button').getAttribute('key-value');
+    const index = this.state.education.map(element => element.key).indexOf(currentKey);
+    const newEducation = [...this.state.education];
+
+    // Get the values of each input element
+
+    const school = parentElement.querySelector('.school').value;
+    const degree = parentElement.querySelector('.degree').value;
+    console.log(parentElement.querySelector('.startDate').value)
+    const startDate = new Date(parentElement.querySelector('.startDate').value);
+    const endDate = new Date(parentElement.querySelector('.endDate').value);
+    const city = parentElement.querySelector('.city').value;
+    const description = parentElement.querySelector('.description').value;
+
+    // Create a new object with the values
+    newEducation[index] = {
+      key: uniqid(),
+      school,
+      degree,
+      startDate,
+      endDate,
+      city,
+      description
+    };
+
+    console.log(newEducation);
+
+    this.setState({education:[...newEducation]})
   }
 
   addEducationFunction = () => {
