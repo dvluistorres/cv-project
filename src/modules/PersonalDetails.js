@@ -2,7 +2,7 @@ import React from "react";
 import UploadAndDisplayImage from "./UploadAndDisplayImage";
 
 const PersonalDetails = ({details, onChangeFunction}) => {
-    const {wantedJobTittle, photo, firstName, lastName, email, country, city} = details;
+    const {wantedJobTittle, firstName, lastName, email, cellphone, country, city} = details;
 
     return(
         <div className="personalDetails">
@@ -12,7 +12,7 @@ const PersonalDetails = ({details, onChangeFunction}) => {
                 <input onChange={onChangeFunction} id='wantedJob' className="text" value={wantedJobTittle}/>
             </div>
 
-            <UploadAndDisplayImage defaultImage={photo}/>
+            <UploadAndDisplayImage />
 
             <div className="title">
                 <p className="detail">First name</p>
@@ -27,6 +27,11 @@ const PersonalDetails = ({details, onChangeFunction}) => {
             <div className="title">
                 <p className="detail">Email</p>
                 <input onChange={onChangeFunction} id='email' className="text" value={email}/>
+            </div>
+
+            <div className="title">
+                <p className="detail">Cellphone</p>
+                <input onChange={onChangeFunction} id='cellphone' className="text" value={cellphone}/>
             </div>
 
             <div className="title">

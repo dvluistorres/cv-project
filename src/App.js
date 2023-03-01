@@ -6,7 +6,9 @@ import ProfessionalSummary from './modules/ProfessionalSummary';
 import Education from './modules/Education';
 import WorkExperience from './modules/WorkExperience';
 import uniqid from 'uniqid';
-import { formatISO } from 'date-fns';
+import { parseISO, format } from 'date-fns';
+import DisplayCV from './modules/DisplayCV';
+import luisPicture from './images/luisPicture.png'
 
 
 class App extends Component {
@@ -16,10 +18,11 @@ class App extends Component {
     this.state = {
       personalDetails:{
         wantedJobTittle:'Web developer',
-        photo:null,
+        photo:luisPicture,
         firstName:'Luis Arturo',
         lastName:'Torres',
         email:'dvluistorres@gmail.com',
+        cellphone: '+573012628026',
         country:'Colombia',
         city:'Medellin'
       },
@@ -28,15 +31,15 @@ class App extends Component {
         {key: uniqid(),
         school: 'The Odin Project',
         degree: 'Web Developer',
-        startDate: formatISO(new Date ('2022-07-01'), { representation: 'date' }),
-        endDate: formatISO(new Date ('2023-02-28'), { representation: 'date' }),
+        startDate: '2022-07-01',
+        endDate: '2023-02-28',
         city: 'Virtual',
         description: 'Right now studying full stack javascript course just missing the React module to complete front-end part. Willing to complete the course as i\'m also willing to learn backend and later on machine learning.'},
         {key: uniqid(),
           school: 'Universidad Nacional de Colombia',
           degree: 'Civil engineer Specialist in structures',
-          startDate: formatISO(new Date ('2011-02-02'), { representation: 'date' }),
-          endDate: formatISO(new Date ('2017-06-12'), { representation: 'date' }),
+          startDate: '2011-02-02',
+          endDate: '2017-06-12',
           city: 'Medellin',
           description:'Career and specialization in one of the most acclaimed universities in Colombia.'}
       ],
@@ -45,16 +48,16 @@ class App extends Component {
           key:uniqid(),
           jobTitle:'Technical Supervisor',
           employer:'Construcciones e inversiones SAS',
-          startDate: formatISO(new Date ('2020-06-31'), { representation: 'date' }),
-          endDate: formatISO(new Date ('2022-08-28'), { representation: 'date' }),
+          startDate: '2020-06-30',
+          endDate: '2022-08-28',
           city:'Medellin',
           description:'Supervise the construction of a 23 stories building.\r\n Work with a team with several teams to build with quality and within budget.\r\nAutomate most of the formats that we used there so we could be less time in the computer and more time in the construction site.'
         },{
           key:uniqid(),
           jobTitle:'Head in a road construction team',
           employer:'TJ ingenieros SAS',
-          startDate: formatISO(new Date ('2017-09-01'), { representation: 'date' }),
-          endDate: formatISO(new Date ('2022-01-30'), { representation: 'date' }),
+          startDate: '2017-09-01',
+          endDate: '2022-01-30',
           city:'Monteria',
           description:'Led a team of 20 construction workers to build a concrete road in Arboletes.\r\nWorked closely with the local mayor\'s office to ensure the project met all regulations and requirements.\r\nManaged the project budget, timelines, and resources to ensure successful completion within deadlines.\r\nCoordinated with engineers, architects, and other stakeholders to ensure project goals were met.\r\nUtilized strong leadership and communication skills to effectively manage the team and collaborate with stakeholders.'
         }
@@ -89,10 +92,8 @@ class App extends Component {
 
     const school = parentElement.querySelector('.school').value;
     const degree = parentElement.querySelector('.degree').value;
-    const startDate = formatISO(new Date(parentElement.querySelector('.startDate').value), { representation: 'date' });
-    console.log(parentElement.querySelector('.startDate').value)
-    console.log(startDate)
-    const endDate = formatISO(new Date(parentElement.querySelector('.endDate').value), { representation: 'date' });
+    const startDate = format(parseISO(parentElement.querySelector('.startDate').value), 'yyyy-MM-dd');
+    const endDate = format(parseISO(parentElement.querySelector('.endDate').value), 'yyyy-MM-dd');
     const city = parentElement.querySelector('.city').value;
     const description = parentElement.querySelector('.description').value;
 
@@ -116,8 +117,8 @@ class App extends Component {
     const newEducation = {key: uniqid(),
       school: '',
       degree: '',
-      startDate: new Date (),
-      endDate: new Date (),
+      startDate: format(new Date(),'yyyy-MM-dd'),
+      endDate: format(new Date(),'yyyy-MM-dd'),
       city: '',
       description: ''}
     this.setState({education:[...this.state.education,newEducation]})
@@ -142,8 +143,8 @@ class App extends Component {
 
     const jobTitle = parentElement.querySelector('.jobTitle').value;
     const employer = parentElement.querySelector('.employer').value;
-    const startDate = formatISO(new Date(parentElement.querySelector('.startDate').value), { representation: 'date' });
-    const endDate = formatISO(new Date(parentElement.querySelector('.endDate').value), { representation: 'date' });
+    const startDate = format(parseISO(parentElement.querySelector('.startDate').value), 'yyyy-MM-dd');
+    const endDate = format(parseISO(parentElement.querySelector('.endDate').value), 'yyyy-MM-dd');
     const city = parentElement.querySelector('.city').value;
     const description = parentElement.querySelector('.description').value;
 
@@ -165,8 +166,8 @@ class App extends Component {
     const newWork = {key: uniqid(),
       jobTitle: '',
       employer: '',
-      startDate: new Date (),
-      endDate: new Date (),
+      startDate: format(new Date(),'yyyy-MM-dd'),
+      endDate: format(new Date(),'yyyy-MM-dd'),
       city: '',
       description: ''}
     this.setState({workExperience:[...this.state.workExperience,newWork]})
@@ -189,6 +190,7 @@ class App extends Component {
         <ProfessionalSummary professionalSummary={professionalSummary} onChangeFunction={this.handleProfessionalSummaryChange}/>
         <Education education={education} onChangeFunction={this.handleEducationChange} deleteEducationFunction={this.deleteEducation} addEducation={this.addEducationFunction}/>
         <WorkExperience workExperience={workExperience} onChangeFunction={this.handleWorkChange} deleteWorkFunction={this.deleteWork} addWork={this.addWorkFunction}/>
+        <DisplayCV allData={this.state}/>
       </div>
 
     );

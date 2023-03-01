@@ -18,12 +18,12 @@ const WorkBullet = ({bullet, onChangeFunction, deleteWorkFunction}) => {
         <div className="bullet">
             <div className="information">
                 <p className="detail">Job title</p>
-                <input onChange={onChangeFunction}  className="jobTitle" value={jobTitle}/>
+                <input onBlur={onChangeFunction}  className="jobTitle" defaultValue={jobTitle}/>
             </div>
 
             <div className="information">
                 <p className="detail">Employer</p>
-                <input onChange={onChangeFunction}  className="employer" value={employer}/>
+                <input onBlur={onChangeFunction}  className="employer" defaultValue={employer}/>
             </div>
 
             <div className="information">
@@ -34,12 +34,12 @@ const WorkBullet = ({bullet, onChangeFunction, deleteWorkFunction}) => {
 
             <div className="information">
                 <p className="detail">City</p>
-                <input onChange={onChangeFunction}  className="city" value={city}/>
+                <input onBlur={onChangeFunction}  className="city" defaultValue={city}/>
             </div>
 
             <div className="information">
                 <p className="detail">Description</p>
-                <input onChange={onChangeFunction}  className="description" value={description}/>
+                <input onBlur={onChangeFunction}  className="description" defaultValue={description}/>
             </div>
 
             <button key-value={key} onClick={deleteWorkFunction}>🗑️</button>

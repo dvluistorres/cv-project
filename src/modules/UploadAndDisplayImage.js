@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
-const UploadAndDisplayImage = ({ defaultImage }) => {
+const UploadAndDisplayImage = () => {
 
-  const [selectedImage, setSelectedImage] = useState(defaultImage || null);
+  const [selectedImage, setSelectedImage] = useState(null);
 
   return (
     <div>

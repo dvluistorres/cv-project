@@ -18,12 +18,12 @@ const EducationBullet = ({bullet, onChangeFunction, deleteEducationFunction}) =>
         <div className="bullet">
             <div className="information">
                 <p className="detail">School</p>
-                <input onChange={onChangeFunction}  className="school" value={school}/>
+                <input onBlur={onChangeFunction}  className="school" defaultValue={school}/>
             </div>
 
             <div className="information">
                 <p className="detail">Degree</p>
-                <input onChange={onChangeFunction}  className="degree" value={degree}/>
+                <input onBlur={onChangeFunction}  className="degree" defaultValue={degree}/>
             </div>
 
             <div className="information">
@@ -34,12 +34,12 @@ const EducationBullet = ({bullet, onChangeFunction, deleteEducationFunction}) =>
 
             <div className="information">
                 <p className="detail">City</p>
-                <input onChange={onChangeFunction}  className="city" value={city}/>
+                <input onBlur={onChangeFunction}  className="city" defaultValue={city}/>
             </div>
 
             <div className="information">
                 <p className="detail">Description</p>
-                <input onChange={onChangeFunction}  className="description" value={description}/>
+                <input onBlur={onChangeFunction}  className="description" defaultValue={description}/>
             </div>
 
             <button key-value={key} onClick={deleteEducationFunction}>🗑️</button>
