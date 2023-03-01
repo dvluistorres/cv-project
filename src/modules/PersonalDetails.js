@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React from "react";
 import UploadAndDisplayImage from "./UploadAndDisplayImage";
 
 const PersonalDetails = ({details, onChangeFunction}) => {
@@ -6,6 +6,7 @@ const PersonalDetails = ({details, onChangeFunction}) => {
 
     return(
         <div className="personalDetails">
+            <h1>PERSONAL DETAILS</h1>
             <div className="title">
                 <p className="detail">Wanted job tittle</p>
                 <input onChange={onChangeFunction} id='wantedJob' className="text" value={wantedJobTittle}/>

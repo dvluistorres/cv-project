@@ -1,29 +1,29 @@
 import React from "react";
 
-const Education = ({education, onChangeFunction, deleteEducationFunction, addEducation}) => {
+const WorkExperience = ({workExperience, onChangeFunction, deleteWorkFunction, addWork}) => {
     return(
-        <div className="education">
-            <h1>EDUCATION</h1>
-            {education.map(element => <EducationBullet key={element.key} bullet={element} onChangeFunction={onChangeFunction} deleteEducationFunction={deleteEducationFunction}/>)}
-            <button onClick={addEducation}>Add education</button>
+        <div className="workExperience">
+            <h1>WORK EXPERIENCE</h1>
+            {workExperience.map(element => <WorkBullet key={element.key} bullet={element} onChangeFunction={onChangeFunction} deleteWorkFunction={deleteWorkFunction}/>)}
+            <button onClick={addWork}>Add work experience</button>
         </div>
     )
 }
 
 
 
-const EducationBullet = ({bullet, onChangeFunction, deleteEducationFunction}) => {
-    const {key, school, degree, startDate, endDate, city, description} = bullet;
+const WorkBullet = ({bullet, onChangeFunction, deleteWorkFunction}) => {
+    const {key, jobTitle, employer, startDate, endDate, city, description} = bullet;
     return(
         <div className="bullet">
             <div className="information">
-                <p className="detail">School</p>
-                <input onChange={onChangeFunction}  className="school" value={school}/>
+                <p className="detail">Job title</p>
+                <input onChange={onChangeFunction}  className="jobTitle" value={jobTitle}/>
             </div>
 
             <div className="information">
-                <p className="detail">Degree</p>
-                <input onChange={onChangeFunction}  className="degree" value={degree}/>
+                <p className="detail">Employer</p>
+                <input onChange={onChangeFunction}  className="employer" value={employer}/>
             </div>
 
             <div className="information">
@@ -42,9 +42,9 @@ const EducationBullet = ({bullet, onChangeFunction, deleteEducationFunction}) =>
                 <input onChange={onChangeFunction}  className="description" value={description}/>
             </div>
 
-            <button key-value={key} onClick={deleteEducationFunction}>🗑️</button>
+            <button key-value={key} onClick={deleteWorkFunction}>🗑️</button>
         </div>
     )
 }
 
-export default Education
+export default WorkExperience
