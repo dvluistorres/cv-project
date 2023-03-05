@@ -12,7 +12,7 @@ const PersonalDetails = ({details, onChangeFunction}) => {
                 <input onChange={onChangeFunction} id='wantedJob' className="text" value={wantedJobTittle}/>
             </div>
 
-            <UploadAndDisplayImage />
+            <UploadAndDisplayImage updateImage={onChangeFunction}/>
 
             <div className="title">
                 <p className="detail">First name</p>
