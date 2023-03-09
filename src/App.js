@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
-import './App.css';
+
 import Title from './modules/Title'
 import PersonalDetails from './modules/PersonalDetails';
 import ProfessionalSummary from './modules/ProfessionalSummary';
 import Education from './modules/Education';
 import WorkExperience from './modules/WorkExperience';
-import uniqid from 'uniqid';
-import { parseISO, format } from 'date-fns';
 import DisplayCV from './modules/DisplayCV';
 import luisPicture from './images/luisPicture.png'
+import './styles/styles.scss'
+
+
+import uniqid from 'uniqid';
+import { parseISO, format } from 'date-fns';
 
 export default function App () {
   const [personalDetails, setPersonalDetails] = useState({
@@ -67,7 +70,7 @@ export default function App () {
   const handlePersonalDetailsChange = (e) => {
     setPersonalDetails({
       wantedJobTittle: document.getElementById('wantedJob').value,
-      photo:document.getElementById('photo').getAttribute('src'),
+      photo: (document.getElementById('photo') ? document.getElementById('photo').getAttribute('src') : personalDetails.photo),
       firstName:document.getElementById('firstName').value,
       lastName:document.getElementById('lastName').value,
       email:document.getElementById('email').value,
@@ -180,14 +183,20 @@ export default function App () {
     setWorkExperience(newArray);
   }
 
+
   return(
-    <div>
+    <div className='container'>
+      <div className='insertData'>
         <Title />
         <PersonalDetails details={personalDetails} onChangeFunction={handlePersonalDetailsChange}/>
         <ProfessionalSummary professionalSummary={professionalSummary} onChangeFunction={handleProfessionalSummaryChange}/>
         <Education education={education} onChangeFunction={handleEducationChange} deleteEducationFunction={deleteEducation} addEducation={addEducationFunction}/>
         <WorkExperience workExperience={workExperience} onChangeFunction={handleWorkChange} deleteWorkFunction={deleteWork} addWork={addWorkFunction}/>
-        <DisplayCV allData={{personalDetails, professionalSummary, education, workExperience}}/>
       </div>
+      <div className='displayData'>
+        <DisplayCV personalDetails={personalDetails} professionalSummary={professionalSummary} education={education} workExperience={workExperience}/>
+      </div>
+    </div>
   )
 }
+

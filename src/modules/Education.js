@@ -28,8 +28,10 @@ const EducationBullet = ({bullet, onChangeFunction, deleteEducationFunction}) =>
 
             <div className="information">
                 <p className="detail">Start and end date</p>
-                <input type='date' onChange={onChangeFunction}  className="startDate" value={startDate}/>
-                <input type='date' onChange={onChangeFunction}  className="endDate" value={endDate}/>
+                <div className="dates">
+                    <input type='date' onChange={onChangeFunction}  className="startDate" value={startDate}/>
+                    <input type='date' onChange={onChangeFunction}  className="endDate" value={endDate}/>
+                </div>
             </div>
 
             <div className="information">
@@ -37,10 +39,12 @@ const EducationBullet = ({bullet, onChangeFunction, deleteEducationFunction}) =>
                 <input onBlur={onChangeFunction}  className="city" defaultValue={city}/>
             </div>
 
-            <div className="information">
+            <div className="descriptionInformation">
                 <p className="detail">Description</p>
-                <input onBlur={onChangeFunction}  className="description" defaultValue={description}/>
+                <textarea rows="8" onBlur={onChangeFunction}  className="description" defaultValue={description}/>
             </div>
+
+            <br />
 
             <button key-value={key} onClick={deleteEducationFunction}>🗑️</button>
         </div>

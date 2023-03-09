@@ -1,13 +1,11 @@
 import React from "react";
-import './DisplayCV.css';
 
-const DisplayCV = ({allData}) => {
-    const { personalDetails, professionalSummary, education, workExperience } = allData;
+const DisplayCV = ({ personalDetails, professionalSummary, education, workExperience } ) => {
 
     return(
         <div className="allPage">
             <div className="left">
-                <p className="name">{personalDetails.name}</p>
+                <p className="name">{personalDetails.firstName} {personalDetails.lastName}</p>
                 <img src={personalDetails.photo} alt='Profile'/>
                 <p className="jobTitle">{personalDetails.wantedJobTittle}</p>
                 <h3 className="title">Details</h3>
@@ -22,24 +20,22 @@ const DisplayCV = ({allData}) => {
                 <h1 className="title">Education</h1>
                 {education.map(element => {
                     return (
-                        <div className='education'>
+                        <div className='education' key={'k1' + element.key}>
                             <h2>{element.degree}, {element.school}, {element.city}</h2>
                             <h5>{element.startDate} to {element.endDate}</h5>
                             <p>{element.description}</p>
                         </div>
                         )
-
                 })}
                 <h1 className="title">Job history</h1>
                 {workExperience.map(element => {
                     return (
-                        <div className='work'>
+                        <div className='work' key={'k2' + element.key}>
                             <h2>{element.jobTitle}, {element.employer}, {element.city}</h2>
                             <h5>{element.startDate} to {element.endDate}</h5>
                             <p>{element.description}</p>
                         </div>
                         )
-
                 })}
             </div>
         </div>

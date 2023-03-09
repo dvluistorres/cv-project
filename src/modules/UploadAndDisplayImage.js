@@ -1,34 +1,32 @@
 import React, { useState } from "react";
 
-const UploadAndDisplayImage = ({updateImage}) => {
+
+const UploadAndDisplayImage = () => {
 
   const [selectedImage, setSelectedImage] = useState(null);
 
   return (
-    <div>
+    <div className="uploadPhotoDiv">
       {selectedImage && (
         <div>
           <img
-            alt="not found"
+            alt={selectedImage.name}
             width={"250px"}
             src={URL.createObjectURL(selectedImage)}
-            id='photo'
+            className='photo'
+            id="photo"
           />
-          <br />
           <button onClick={() => setSelectedImage(null)}>Remove</button>
         </div>
       )}
-
-      <br />
-      <br />
       
       <input
         type="file"
         name="myImage"
+        className="imageInput"
         onChange={(event) => {
           console.log(event.target.files[0]);
           setSelectedImage(event.target.files[0]);
-          updateImage();
         }}
       />
     </div>

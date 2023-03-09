@@ -1,0 +1,466 @@
+@import './variables';
+
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #d6d6d6 #ffffff;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #ffffff;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #d6d6d6;
+    border-radius: 10px;
+    border: 3px solid #ffffff;
+  }
+
+#root{
+  height: calc(100vh - 45px);
+}
+
+p,
+body {
+  padding: 0px;
+  word-break: normal;
+  margin: 0px;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #404246;
+    height: calc(100vh - 45px);
+
+    .insertData {
+      flex: 0 1 50vw;
+      width: 49vw;
+      height: 100%;
+      overflow-y: auto;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center; 
+      background-color: white;
+  
+      .personalDetails {
+        display:flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        gap: 12px;
+
+        h1 {
+          flex: 0 1 90%;
+          color: $titleColor;
+          font-size: $titleFontSize;
+          font-family: $titleFontFamily;
+        }
+
+        .uploadPhotoDiv {
+          flex: 0 1 40%;
+          height: 70px;
+
+          .photo {
+            height: 40px;
+            width: 40px;
+            margin-right: auto;
+          }
+        }
+
+        .title {
+          flex: 0 1 40%;
+          height: 70px;
+
+          .detail {
+            color: $detailColor;
+            font-size: $detailFontSize;
+            font-family: $detailFontFamily;
+            margin: 5px
+          }
+
+          .text {
+            border-radius: 3px;
+            padding: 12px 16px;
+            width: 100%;
+            display: block;
+            caret-color: rgb(20, 121, 204);
+            background-color: rgb(239, 242, 249);
+            outline: none;
+            border: 0px;
+            color: rgb(30, 37, 50);
+            transition: color 0.1s ease 0s;
+            font-size: 16px;
+            font-weight: 500;
+          }
+        }
+      }
+
+      .professionalSummary {
+        display:flex;
+        flex-direction: column;
+        flex: 0 1 90%;
+        width: 90%;
+
+        .title {
+          color: $titleColor;
+          font-size: $titleFontSize;
+          font-family: $titleFontFamily;
+          text-align: left;
+        }
+
+        .detail {
+          color: $detailColor;
+          font-size: $detailFontSize;
+          font-family: $detailFontFamily;
+          margin: 5px
+        }
+
+        .text {
+          border-radius: 3px;
+          padding: 12px 16px;
+          width: 100%;
+          display: block;
+          caret-color: rgb(20, 121, 204);
+          background-color: rgb(239, 242, 249);
+          outline: none;
+          border: 0px;
+          color: rgb(30, 37, 50);
+          transition: color 0.1s ease 0s;
+          font-size: 16px;
+          font-weight: 500;
+          height: fit-content;
+          resize: none;
+        }
+      }
+
+      .education {
+        display:flex;
+        flex-direction: column;
+
+        h1 {
+          width: 90%;
+          color: $titleColor;
+          font-size: $titleFontSize;
+          font-family: $titleFontFamily;
+          margin: 28px auto 28px auto;
+        }
+
+        .bullet {
+          display:flex;
+          flex-wrap: wrap;
+          justify-content: space-around;
+          gap: 12px;
+          width: 100%;
+
+          .information {
+            flex: 0 1 45%;
+            width: 45%;
+            height: 70px;
+  
+            .detail {
+              color: $detailColor;
+              font-size: $detailFontSize;
+              font-family: $detailFontFamily;
+              margin: 5px;
+            }
+  
+            .school,
+            .degree,
+            .city {
+              flex: 0 1 100%;
+              border-radius: 3px;
+              padding: 12px 16px;
+              width: 100%;
+              caret-color: rgb(0, 140, 255);
+              background-color: rgb(239, 242, 249);
+              outline: none;
+              border: 0px;
+              color: rgb(0, 20, 58);
+              transition: color 0.1s ease 0s;
+              font-size: 16px;
+              font-weight: 500;
+              box-sizing: border-box;
+            }
+
+            .dates {
+              display: flex;
+              justify-content: space-between;
+
+              .startDate,
+              .endDate {
+                flex: 0 1 43%;
+                border-radius: 3px;
+                padding: 12px 10px 12px 5px;
+                display: block;
+                caret-color: rgb(20, 121, 204);
+                background-color: rgb(239, 242, 249);
+                outline: none;
+                border: 0px;
+                color: rgb(30, 37, 50);
+                transition: color 0.1s ease 0s;
+                font-size: 16px;
+                font-weight: 500;
+                margin: auto;
+              }
+            }
+          }
+
+          .descriptionInformation {
+            flex: 0 1 90%;
+            margin: auto;
+  
+            .detail {
+              color: $detailColor;
+              font-size: $detailFontSize;
+              font-family: $detailFontFamily;
+              margin: 5px
+            }
+  
+            .description {
+              flex: 1 1 100%;
+              border-radius: 3px;
+              padding: 12px 16px;
+              width: 100%;
+              caret-color: rgb(20, 121, 204);
+              background-color: rgb(239, 242, 249);
+              outline: none;
+              border: 0px;
+              color: rgb(30, 37, 50);
+              transition: color 0.1s ease 0s;
+              font-size: 16px;
+              font-weight: 500;
+              resize: none;
+              margin-bottom: 10px;
+            }
+          }
+
+          button {
+            clear: both;
+            margin: 10px 6% 10px auto;
+            font-size: 16px;
+          }
+        }
+
+        button {
+          margin: 15px auto 15px auto;
+          width: fit-content;
+          font-size: 16px;
+        }
+      }
+
+      .workExperience {
+        display:flex;
+        flex-direction: column;
+
+        h1 {
+          flex: 0 1 90%;
+          width: 90%;
+          color: $titleColor;
+          font-size: $titleFontSize;
+          font-family: $titleFontFamily;
+          margin: 28px auto 28px auto;
+        }
+
+        .bullet {
+          display:flex;
+          flex-wrap: wrap;
+          justify-content: space-around;
+          gap: 12px;
+
+          .information {
+            flex: 0 1 40%;
+            height: 70px;
+  
+            .detail {
+              color: $detailColor;
+              font-size: $detailFontSize;
+              font-family: $detailFontFamily;
+              margin: 5px
+            }
+  
+            .jobTitle,
+            .employer,
+            .city {
+              border-radius: 3px;
+              padding: 12px 16px;
+              width: 100%;
+              display: block;
+              caret-color: rgb(20, 121, 204);
+              background-color: rgb(239, 242, 249);
+              outline: none;
+              border: 0px;
+              color: rgb(30, 37, 50);
+              transition: color 0.1s ease 0s;
+              font-size: 16px;
+              font-weight: 500;
+              box-sizing: border-box;
+            }
+
+            .dates {
+              display: flex;
+              justify-content: space-between;
+
+              .startDate,
+              .endDate {
+                flex: 0 1 43%;
+                border-radius: 3px;
+                padding: 12px 10px 12px 5px;
+                display: block;
+                caret-color: rgb(20, 121, 204);
+                background-color: rgb(239, 242, 249);
+                outline: none;
+                border: 0px;
+                color: rgb(30, 37, 50);
+                transition: color 0.1s ease 0s;
+                font-size: 16px;
+                font-weight: 500;
+                margin: auto;
+              }
+            }
+          }
+
+          .descriptionInformation {
+            flex: 0 1 90%;
+            margin: auto;
+  
+            .detail {
+              color: $detailColor;
+              font-size: $detailFontSize;
+              font-family: $detailFontFamily;
+              margin: 5px
+            }
+  
+            .description {
+              flex: 1 1 100%;
+              border-radius: 3px;
+              padding: 12px 16px;
+              width: 100%;
+              caret-color: rgb(20, 121, 204);
+              background-color: rgb(239, 242, 249);
+              outline: none;
+              border: 0px;
+              color: rgb(30, 37, 50);
+              transition: color 0.1s ease 0s;
+              font-size: 16px;
+              font-weight: 500;
+              resize: none;
+              margin-bottom: 10px;
+            }
+          }
+
+          button {
+            margin: 10px 6% 10px auto;
+            font-size: 16px;
+          }
+        }
+
+        button {
+          margin: 15px auto 15px auto;
+          width: fit-content;
+          font-size: 16px;
+        }
+      }
+    }
+
+    .displayData {
+      display: flex;
+      justify-content: center;
+      flex: 0 1 50vw;
+      width: 50vw;
+      height: 100%;
+      overflow-y: auto;
+      overflow-x: hidden;
+      
+
+      .allPage{
+        display: flex;
+        flex: 0 0 100%;
+        width: 215mm;
+        height: 355.6mm;
+
+        .left{
+          flex: 1 0 33%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          background-color: rgb(8,75,65);
+          width: 33%;
+          color: white;
+          padding: 10mm;
+          box-sizing: border-box;
+
+          .name{
+            width: 60%;
+            font-size: 34px;
+            font-family: $titleFontFamily;
+            text-align: center;
+          }
+
+          img {
+            width: 50mm;
+            height: 50mm;
+            border-radius: 50%;
+            margin: 12mm;
+          }
+
+          .jobTitle {
+            width: 60%;
+            font-size: 26px;
+            font-family: $titleFontFamily;
+            text-align: left;
+            align-self:start;
+            margin: 2mm;
+          }
+
+          .title{
+            align-self: left;
+            text-align: left;
+            margin: 2mm auto 2mm 2mm;
+            font-size: 20px;
+          }
+
+          .details{
+            align-self: left;
+            text-align: left;
+            margin: 0mm auto 0mm 2mm;
+            font-size: 16px;
+          }
+
+
+        }
+
+        .right{
+          width: 66%;
+          flex: 1 0 66%;
+          padding: 20px;
+          background-color: white;
+
+          h5{
+            margin: auto;
+          }
+        }
+      }
+    }
+  }
+
+@media (max-width: 1250px) {
+ .container{
+  flex-wrap: wrap;
+
+  .insertData{
+    width: 100%;
+  }
+
+  .displayData{
+    width: 100%;
+  }
+ }
+}

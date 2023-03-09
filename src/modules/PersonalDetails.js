@@ -9,39 +9,39 @@ const PersonalDetails = ({details, onChangeFunction}) => {
             <h1>PERSONAL DETAILS</h1>
             <div className="title">
                 <p className="detail">Wanted job tittle</p>
-                <input onChange={onChangeFunction} id='wantedJob' className="text" value={wantedJobTittle}/>
+                <input onBlur={onChangeFunction} id='wantedJob' className="text" defaultValue={wantedJobTittle}/>
             </div>
 
-            <UploadAndDisplayImage updateImage={onChangeFunction}/>
+            <UploadAndDisplayImage/>
 
             <div className="title">
                 <p className="detail">First name</p>
-                <input onChange={onChangeFunction} id='firstName' className="text" value={firstName}/>
+                <input onBlur={onChangeFunction} id='firstName' className="text" defaultValue={firstName}/>
             </div>
 
             <div className="title">
                 <p className="detail">Last name</p>
-                <input onChange={onChangeFunction} id='lastName' className="text" value={lastName}/>
+                <input onBlur={onChangeFunction} id='lastName' className="text" defaultValue={lastName}/>
             </div>
             
             <div className="title">
                 <p className="detail">Email</p>
-                <input onChange={onChangeFunction} id='email' className="text" value={email}/>
+                <input onBlur={onChangeFunction} id='email' className="text" defaultValue={email}/>
             </div>
 
             <div className="title">
                 <p className="detail">Cellphone</p>
-                <input onChange={onChangeFunction} id='cellphone' className="text" value={cellphone}/>
+                <input onBlur={onChangeFunction} id='cellphone' className="text" defaultValue={cellphone}/>
             </div>
 
             <div className="title">
                 <p className="detail">Country</p>
-                <input onChange={onChangeFunction} id='country' className="text" value={country}/>
+                <input onBlur={onChangeFunction} id='country' className="text" defaultValue={country}/>
             </div>
 
             <div className="title">
                 <p className="detail">City</p>
-                <input onChange={onChangeFunction} id='city' className="text" value={city}/>
+                <input onBlur={onChangeFunction} id='city' className="text" defaultValue={city}/>
             </div>
         </div>
     )

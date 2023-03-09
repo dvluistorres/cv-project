@@ -29,12 +29,13 @@ export default class Title extends Component{
     
     return(
         
-        <div>
+        <div className="titleAndLanguage">
             <div ref={this.titleRef} 
                 onClick={this.onTitleClick} 
                 onBlur={this.onTitleBlur} 
                 contentEditable={editable} 
-                id="CVTittle">
+                id="CVTittle"
+                className="CVTittle">
                     {title}
                 </div>
             <div id="CVLanguage">{language}</div>
