@@ -382,9 +382,9 @@ body {
 
       .allPage{
         display: flex;
-        flex: 0 0 100%;
         width: 215mm;
         height: 355.6mm;
+        flex:none;
 
         .left{
           flex: 1 0 33%;

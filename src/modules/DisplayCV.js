@@ -3,7 +3,7 @@ import React from "react";
 const DisplayCV = ({ personalDetails, professionalSummary, education, workExperience } ) => {
 
     return(
-        <div className="allPage">
+        <div className="allPage" id="cv">
             <div className="left">
                 <p className="name">{personalDetails.firstName} {personalDetails.lastName}</p>
                 <img src={personalDetails.photo} alt='Profile'/>

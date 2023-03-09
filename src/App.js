@@ -7,6 +7,7 @@ import Education from './modules/Education';
 import WorkExperience from './modules/WorkExperience';
 import DisplayCV from './modules/DisplayCV';
 import luisPicture from './images/luisPicture.png'
+import ExportAsCanvas from './modules/ExportAsCanvas';
 import './styles/styles.scss'
 
 
@@ -187,14 +188,14 @@ export default function App () {
   return(
     <div className='container'>
       <div className='insertData'>
-        <Title />
         <PersonalDetails details={personalDetails} onChangeFunction={handlePersonalDetailsChange}/>
         <ProfessionalSummary professionalSummary={professionalSummary} onChangeFunction={handleProfessionalSummaryChange}/>
         <Education education={education} onChangeFunction={handleEducationChange} deleteEducationFunction={deleteEducation} addEducation={addEducationFunction}/>
         <WorkExperience workExperience={workExperience} onChangeFunction={handleWorkChange} deleteWorkFunction={deleteWork} addWork={addWorkFunction}/>
+        <ExportAsCanvas id="cv" filename="my-cv" />
       </div>
       <div className='displayData'>
-        <DisplayCV personalDetails={personalDetails} professionalSummary={professionalSummary} education={education} workExperience={workExperience}/>
+          <DisplayCV personalDetails={personalDetails} professionalSummary={professionalSummary} education={education} workExperience={workExperience}/>
       </div>
     </div>
   )
